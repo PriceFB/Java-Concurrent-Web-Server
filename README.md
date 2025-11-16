@@ -51,11 +51,3 @@ A blocking I/O HTTP/1.1 server written in Java for the COP6727 Advanced Database
 1. **Concurrency**: Run multiple /slow curl calls simultaneously; the timestamps in the console logs should show overlapping processing.
 2. **Static Files**: Add your own HTML/CSS under wwwroot/ and hit them via the browser.
 3. **Echo Endpoint**: Use the wwwroot/echo.html form or curl -X POST http://localhost:8080/echo -d "hello".
-
-## Project Deliverables
-- Source code in src/
-- Static assets in wwwroot/
-- Report outlines in docs/
-- Demo script in demo/
-
-Feel free to expand the router with additional endpoints or instrument the thread pool for metrics/visualizations in your implementation and testing reports.
