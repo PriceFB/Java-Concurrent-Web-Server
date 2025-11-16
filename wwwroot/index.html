@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>COP6727 Concurrent Web Server</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Concurrent Web Server Demo</h1>
+    <p>This page is served by the custom multithreaded server.</p>
+</header>
+<main>
+    <section>
+        <h2>Available Endpoints</h2>
+        <ul>
+            <li><a href="/">/</a> - Static content (this page)</li>
+            <li><a href="/echo.html">/echo.html</a> - Instructions for the POST /echo endpoint</li>
+            <li><a href="/slow.html">/slow.html</a> - Triggers the /slow endpoint for concurrency demos</li>
+            <li><a href="/slow">/slow</a> - GET endpoint that waits 3 seconds</li>
+            <li><code>POST /echo</code> - Echoes request bodies</li>
+            <li><a href="/health">/health</a> - Lightweight health probe</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Try a Quick Test</h2>
+        <p>Use <code>curl</code> or a browser to open <code>/slow</code> in multiple tabs. Because each connection is processed in its own worker thread, the requests complete concurrently instead of sequentially.</p>
+    </section>
+</main>
+<footer>
+    <p>&copy; 2025 COP6727 Concurrent Web Server Project</p>
+</footer>
+</body>
+</html>

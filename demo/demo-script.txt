@@ -1,0 +1,35 @@
+﻿Demo Video Script
+=================
+
+1. **Introduction (15s)**
+   - State project name, course, and objective (build a concurrent web server).
+
+2. **Server Startup (30s)**
+   - Show terminal command: java -cp out edu.fiu.cop6727.webserver.HttpServer --port 8080 --docRoot wwwroot --threads 8.
+   - Highlight configuration (port, doc root, thread count) and explain listener + worker model.
+
+3. **Static Content Demo (20s)**
+   - Open http://localhost:8080/ in the browser to show the homepage and CSS styling.
+   - Briefly mention static file serving and MIME type detection.
+
+4. **Echo Endpoint (30s)**
+   - Navigate to /echo.html, submit sample payload, and show server response + console log entry.
+   - Mention POST parsing and body handling.
+
+5. **Concurrency Highlight (60s)**
+   - Run two curl http://localhost:8080/slow commands simultaneously (or use PowerShell background jobs).
+   - Keep terminal with server logs visible to show separate thread names handling each request concurrently.
+   - Point out that both requests finish after ~3 seconds, not sequentially.
+
+6. **Health Endpoint + Shutdown (15s)**
+   - Call /health to show quick readiness response.
+   - Stop the server with Ctrl+C and mention graceful shutdown of thread pool.
+
+7. **Source Code Walkthrough (90s)**
+   - Show HttpServer.java (listener + thread pool) and ClientHandler.java (per-connection parsing).
+   - Highlight RequestRouter logic for /slow and /echo, tying it back to concurrency concepts in DBMS worker pools.
+
+8. **Wrap-Up (15s)**
+   - Summarize test strategy and mention that written reports describe the architecture, implementation, and testing evidence.
+
+Total runtime: ~4 minutes.

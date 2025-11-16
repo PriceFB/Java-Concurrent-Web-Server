@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>/slow Endpoint</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<main>
+    <h1>Slow Endpoint</h1>
+    <p>Click the button a few times quickly or open multiple tabs to hit the <code>/slow</code> endpoint. Each request blocks a worker thread for three seconds, which makes it easy to show concurrency in the demo video.</p>
+    <button id="slow-btn">Call /slow</button>
+    <div id="status"></div>
+</main>
+<script>
+    const status = document.getElementById('status');
+    document.getElementById('slow-btn').addEventListener('click', async () => {
+        status.textContent = 'Waiting for response...';
+        const start = performance.now();
+        const response = await fetch('/slow');
+        const text = await response.text();
+        const duration = ((performance.now() - start) / 1000).toFixed(2);
+        status.textContent = `${response.status} after ${duration}s: ${text}`;
+    });
+</script>
+</body>
+</html>
